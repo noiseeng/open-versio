@@ -1,0 +1,54 @@
+{
+  "gcc": {
+    "version": "13.3.1",
+    "bin": "bin/arm-none-eabi-gcc",
+    "hosts": {
+      "win-amd64": {
+        "url": "https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-mingw-w64-i686-arm-none-eabi.zip",
+        "checksum": "md5:39d9882ca0eb475e81170ae826c1435d"
+      },
+      "mac-amd64": {
+        "url": "https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-darwin-x86_64-arm-none-eabi.tar.xz",
+        "checksum": "md5:4bb141e44b831635fde4e8139d470f1f"
+      },
+      "mac-arm64": {
+        "url": "https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-darwin-arm64-arm-none-eabi.tar.xz",
+        "checksum": "md5:f1c18320bb3121fa89dca11399273f4e"
+      },
+      "lin-amd64": {
+        "url": "https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz",
+        "checksum": "md5:0601a9588bc5b9c99ad2b56133b7f118"
+      },
+      "lin-arm64": {
+        "url": "https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-aarch64-arm-none-eabi.tar.xz",
+        "checksum": "md5:303102d97b877ebbeb36b3158994b218"
+      }
+    }
+  },
+  "openocd": {
+    "version": "0.12.0-7",
+    "bin": "bin/openocd",
+    "hosts": {
+      "win-amd64": {
+        "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.12.0-7/xpack-openocd-0.12.0-7-win32-x64.zip",
+        "checksum": "sha256:6bfd3c97135aafef8affc9af1acf34fd0e2b9ca26044506f6abd7f95b7630052"
+      },
+      "mac-amd64": {
+        "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.12.0-7/xpack-openocd-0.12.0-7-darwin-x64.tar.gz",
+        "checksum": "sha256:668ad25350103a4357e11629ec833eae5982e973889ce25bad0c2963e37fa8bf"
+      },
+      "mac-arm64": {
+        "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.12.0-7/xpack-openocd-0.12.0-7-darwin-arm64.tar.gz",
+        "checksum": "sha256:667342c086984f3e5a55b4e0d5f711add13fb04de040fca493303000e6c19327"
+      },
+      "lin-amd64": {
+        "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.12.0-7/xpack-openocd-0.12.0-7-linux-x64.tar.gz",
+        "checksum": "sha256:94b3790983beaf8ed57e646c0620dd66d705fddae03d290823a6ed3b439468d6"
+      },
+      "lin-arm64": {
+        "url": "https://github.com/xpack-dev-tools/openocd-xpack/releases/download/v0.12.0-7/xpack-openocd-0.12.0-7-linux-arm64.tar.gz",
+        "checksum": "sha256:db73a3ab91c556ecec2405a7e02d404b11139df6aba1031cad94a7e6766d06cc"
+      }
+    }
+  }
+}

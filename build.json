@@ -1,0 +1,111 @@
+{
+  "jlinkDevice": "STM32H750IB",
+  "openocdTarget": "target/stm32h7x.cfg",
+  "includeDirs": [
+    "src/lacerti/prd/versio",
+    "src/lacerti",
+    "src"
+  ],
+  "defines": [
+    "LAC_MCU=1",
+    "BUG_ASSERT_SLIM=1"
+  ],
+  "std": "c++2b",
+  "cpuFlags": [
+    "-mthumb",
+    "-mcpu=cortex-m7",
+    "-mtune=cortex-m7",
+    "-mfloat-abi=hard",
+    "-mfpu=fpv5-d16"
+  ],
+  "compileFlags": [
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-unused-parameter",
+    "-Wno-class-memaccess",
+    "-Wno-multichar",
+    "-Wno-psabi",
+    "-Wdouble-promotion",
+    "-Wframe-larger-than=2048",
+    "-ffast-math",
+    "-fno-math-errno",
+    "-fsingle-precision-constant",
+    "-ffunction-sections",
+    "-fdata-sections",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fno-threadsafe-statics",
+    "-fno-unwind-tables",
+    "-fno-use-cxa-atexit",
+    "-fvisibility=hidden"
+  ],
+  "linkerScript": "src/lacerti/mcu/stm/h750/STM32H750IB_SRAM_FLASH.lds",
+  "linkFlags": [
+    "-nostdlib",
+    "-nodefaultlibs",
+    "-Wl,--gc-sections",
+    "-Wl,--no-warn-rwx-segments"
+  ],
+  "linkLibs": [
+    "-lm",
+    "-lc",
+    "-lgcc"
+  ],
+  "configs": {
+    "ship": {
+      "defines": [
+        "NDEBUG=1",
+        "RELEASE=1",
+        "LAC_SHIP=1",
+        "LAC_USE_LOG=0"
+      ],
+      "compileFlags": [
+        "-O3",
+        "-fomit-frame-pointer",
+        "-g1",
+        "-ggdb1"
+      ],
+      "extraSources": []
+    },
+    "test": {
+      "defines": [
+        "DEVELOPMENT=1",
+        "LAC_TEST=1",
+        "LAC_USE_LOG=1"
+      ],
+      "compileFlags": [
+        "-O3",
+        "-g",
+        "-ggdb"
+      ],
+      "extraSources": [
+        "src/lacerti/utl/log.cpp"
+      ]
+    },
+    "debug": {
+      "defines": [
+        "DEBUG=1",
+        "_DEBUG=1",
+        "LAC_DEBUG=1",
+        "LAC_USE_LOG=1"
+      ],
+      "compileFlags": [
+        "-O3",
+        "-g",
+        "-ggdb"
+      ],
+      "extraSources": [
+        "src/lacerti/utl/log.cpp"
+      ]
+    }
+  },
+  "firmwares": [
+    {
+      "name": "example",
+      "sources": [
+        "src/open_versio_main.cpp"
+      ]
+    }
+  ]
+}

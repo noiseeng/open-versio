@@ -1,0 +1,5 @@
+build/
+tools/
+tmp/
+node_modules/
+compile_commands.json

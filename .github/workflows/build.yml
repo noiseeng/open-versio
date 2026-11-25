@@ -1,0 +1,29 @@
+name: build
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - uses: actions/cache@v6
+        with:
+          path: tools
+          key: tools-${{ runner.os }}-${{ hashFiles('tools.json') }}
+      - run: npm run setup
+      - run: |
+          for c in $(node -p "Object.keys(require('./build.json').configs).join(' ')"); do
+            node scripts/build.ts --config "$c"
+          done
+      - uses: actions/upload-artifact@v7
+        with:
+          name: ${{ github.event.repository.name }}-${{ github.sha }}
+          if-no-files-found: error
+          path: |
+            build/*/*/*.bin
+            build/*/*/*.elf
+            build/*/*/*.map
